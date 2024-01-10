@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
@@ -29,9 +31,8 @@ namespace DesafioFundamentos.Models
             if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
             {
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
-                int horas = 0;
-                decimal valorTotal = 0; 
-                valorTotal = precoInicial + precoPorHora * horas;
+                int horas = Convert.ToInt32(Console.ReadLine());
+                decimal valorTotal = precoInicial + precoPorHora * horas;
 
                 veiculos.Remove(placa);
                 Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
@@ -48,7 +49,7 @@ namespace DesafioFundamentos.Models
             if (veiculos.Any())
             {
                 Console.WriteLine("Os veículos estacionados são:");
-                foreach (string veiculosEstacionados in veiculos) 
+                foreach (string veiculosEstacionados in veiculos)
                 {
                     Console.WriteLine(veiculosEstacionados);
                 }
